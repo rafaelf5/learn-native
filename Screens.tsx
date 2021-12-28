@@ -1,10 +1,14 @@
 import React, { Children } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-import { SearchStackParamList } from "./types";
+import { SearchStackParamList, RootTabParamList } from "./types";
 
 import { AuthContext } from "./context";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+import {
+  CompositeNavigationProp,
+  useNavigation,
+} from "@react-navigation/native";
+import { StackNavigationProp, StackScreenProps } from "@react-navigation/stack";
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 
 const styles = StyleSheet.create({
   container: {
@@ -54,8 +58,14 @@ export const Details = () => (
   </ScreenContainer>
 );
 
+type SearchScreenNavigationProp = CompositeNavigationProp<
+  StackScreenProps<SearchStackParamList, "Search">,
+  BottomTabScreenProps<RootTabParamList>
+>;
+
 export const Search = () => {
-  const navigation = useNavigation<StackNavigationProp<SearchStackParamList>>();
+  const navigation =
+    useNavigation<StackNavigationProp<SearchScreenNavigationProp>>();
   return (
     <ScreenContainer>
       <Text>Search Screen</Text>
