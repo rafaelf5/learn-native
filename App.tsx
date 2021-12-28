@@ -2,7 +2,12 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { RootTabParamList, RootStackParamList, DetailsProps } from "./types";
+import {
+  RootTabParamList,
+  HomeStackParamList,
+  AuthStackParamList,
+  SearchStackParamList,
+} from "./types";
 
 import {
   SignIn,
@@ -14,9 +19,9 @@ import {
 } from "./Screens";
 
 const Tabs = createBottomTabNavigator<RootTabParamList>();
-const AuthStack = createStackNavigator<RootStackParamList>();
-const HomeStack = createStackNavigator<RootStackParamList>();
-const SearchStack = createStackNavigator<RootStackParamList>();
+const AuthStack = createStackNavigator<AuthStackParamList>();
+const HomeStack = createStackNavigator<HomeStackParamList>();
+const SearchStack = createStackNavigator<SearchStackParamList>();
 
 const HomeStackScreen = () => (
   <HomeStack.Navigator>
@@ -24,7 +29,7 @@ const HomeStackScreen = () => (
     <HomeStack.Screen
       name="Details"
       component={Details}
-      options={({ route }: DetailsProps) => ({
+      options={({ route }) => ({
         title: route?.params?.name ?? "",
       })}
     ></HomeStack.Screen>
@@ -37,6 +42,7 @@ const SearchStackScreen = () => (
     <SearchStack.Screen name="Search2" component={Search2}></SearchStack.Screen>
   </SearchStack.Navigator>
 );
+const ProfileStack = createStackNavigator();
 
 const App = () => (
   <NavigationContainer>

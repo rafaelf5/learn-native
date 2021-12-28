@@ -1,19 +1,27 @@
-import { StackScreenProps } from "@react-navigation/stack";
+import { NavigatorScreenParams } from "@react-navigation/native";
 
-export type RootStackParamList = {
-  SignIn: undefined;
-  CreateAccount: undefined;
+export type HomeStackParamList = {
   Details: { name: string; title?: string } | undefined;
   Home: undefined;
+};
+
+export type AuthStackParamList = {
+  SignIn: undefined;
+  CreateAccount: undefined;
+};
+
+export type SearchStackParamList = {
   Search: undefined;
   Search2: undefined;
 };
 
 export type RootTabParamList = {
-  HomeTab: undefined;
-  SearchTab: undefined;
+  HomeTab: NavigatorScreenParams<HomeStackParamList>;
+  SearchTab: NavigatorScreenParams<SearchStackParamList>;
 };
 
-export type HomeProps = StackScreenProps<RootStackParamList, "Home">;
-export type DetailsProps = StackScreenProps<RootStackParamList, "Details">;
-export type SignInProps = StackScreenProps<RootStackParamList, "SignIn">;
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootTabParamList {}
+  }
+}
