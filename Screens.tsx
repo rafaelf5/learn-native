@@ -1,5 +1,6 @@
 import React, { Children } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
+import { SearchStackParamList } from "./types";
 
 import { AuthContext } from "./context";
 import { useNavigation } from "@react-navigation/native";
@@ -54,7 +55,7 @@ export const Details = () => (
 );
 
 export const Search = () => {
-  const navigation = useNavigation<StackNavigationProp<any>>();
+  const navigation = useNavigation<StackNavigationProp<SearchStackParamList>>();
   return (
     <ScreenContainer>
       <Text>Search Screen</Text>
