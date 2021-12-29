@@ -16,8 +16,8 @@ export type SearchStackParamList = {
 };
 
 export type RootTabParamList = {
-  HomeTab: HomeStackParamList;
-  SearchTab: SearchStackParamList;
+  HomeTab: NavigatorScreenParams<HomeStackParamList>;
+  SearchTab: NavigatorScreenParams<SearchStackParamList>;
 };
 
 declare global {

@@ -8,7 +8,7 @@ import {
   useNavigation,
 } from "@react-navigation/native";
 import { StackNavigationProp, StackScreenProps } from "@react-navigation/stack";
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 
 const styles = StyleSheet.create({
   container: {
@@ -59,13 +59,12 @@ export const Details = () => (
 );
 
 type SearchScreenNavigationProp = CompositeNavigationProp<
-  StackScreenProps<SearchStackParamList, "Search">,
-  BottomTabScreenProps<RootTabParamList>
+  StackNavigationProp<SearchStackParamList, "Search">,
+  BottomTabNavigationProp<RootTabParamList>
 >;
 
 export const Search = () => {
-  const navigation =
-    useNavigation<StackNavigationProp<SearchScreenNavigationProp>>();
+  const navigation = useNavigation<SearchScreenNavigationProp>();
   return (
     <ScreenContainer>
       <Text>Search Screen</Text>
