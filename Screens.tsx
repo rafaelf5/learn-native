@@ -58,6 +58,9 @@ export const Details = () => (
   </ScreenContainer>
 );
 
+// https://benjaminwoojang.medium.com/react-navigation-with-typescript-270dfa8d5cad
+// https://gist.github.com/wkddngus5/05fe4ea31b5ddb0695a0100231a46af2#file-homescreen-tsx
+
 type SearchScreenNavigationProp = CompositeNavigationProp<
   StackNavigationProp<SearchStackParamList, "Search">,
   BottomTabNavigationProp<RootTabParamList>
