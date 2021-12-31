@@ -15,13 +15,22 @@ export type SearchStackParamList = {
   Search2: undefined;
 };
 
+export type ProfileStackParamList = {
+  Profile: undefined;
+};
+
 export type RootTabParamList = {
   HomeTab: NavigatorScreenParams<HomeStackParamList>;
   SearchTab: NavigatorScreenParams<SearchStackParamList>;
 };
 
+export type RootDrawerParamList = {
+  Main: NavigatorScreenParams<RootTabParamList>;
+  User: NavigatorScreenParams<ProfileStackParamList>;
+};
+
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends RootTabParamList {}
+    interface RootParamList extends RootDrawerParamList {}
   }
 }
